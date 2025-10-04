@@ -1,0 +1,32 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.env
+env/
+venv/
+ENV/
+*.egg-info/
+*.egg
+
+# Django
+*.sqlite3
+db.sqlite3
+/staticfiles/
+media/
+*.log
+
+# VS Code / IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ignore virtual environment folders
+env/
+venv/
