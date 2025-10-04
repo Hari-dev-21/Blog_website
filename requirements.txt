@@ -2,3 +2,4 @@ Django==5.2.1
 gunicorn
 pytz
 django-crispy-forms
+whitenoise==7.1.2
