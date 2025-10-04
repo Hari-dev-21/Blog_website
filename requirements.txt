@@ -34,7 +34,7 @@ PyAudio==0.2.14
 pycparser==2.22
 PyMySQL==1.1.1
 pyparsing==3.2.3
-pypiwin32==223
+
 python-dateutil==2.9.0.post0
 pytz==2025.2
 
