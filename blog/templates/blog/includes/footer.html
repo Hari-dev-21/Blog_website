@@ -1,0 +1,88 @@
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- About Section -->
+            <div class="col-md-4">
+                <h5 class="text-uppercase mb-3">
+                    <i class="fas fa-blog me-2"></i>BlogHub
+                </h5>
+                <p class="text-muted">
+                    Sharing ideas, stories, and knowledge with the world. 
+                    Join our community of writers and readers.
+                </p>
+                <div class="social-icons mt-3">
+                    <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a href="#" class="text-light me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="#" class="text-light"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="col-md-2">
+                <h5 class="text-uppercase mb-3">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="/" class="text-decoration-none text-light">Home</a></li>
+                    <li class="mb-2"><a href="/about" class="text-decoration-none text-light">About</a></li>
+                    <li class="mb-2"><a href="/contact" class="text-decoration-none text-light">Contact</a></li>
+                    <li class="mb-2"><a href="/privacy" class="text-decoration-none text-light">Privacy Policy</a></li>
+                    <li><a href="/terms" class="text-decoration-none text-light">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="col-md-4">
+                <h5 class="text-uppercase mb-3">Newsletter</h5>
+                <p class="text-muted">Subscribe to get updates on new posts</p>
+                <form class="mb-3">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email" aria-label="Email">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+                <small class="text-muted">We'll never share your email with anyone else.</small>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-md-2">
+                <h5 class="text-uppercase mb-3">Contact</h5>
+                <address class="text-muted">
+                    <i class="fas fa-map-marker-alt me-2"></i> 123 Blog St, City<br>
+                    <i class="fas fa-phone me-2 mt-2"></i> (123) 456-7890<br>
+                    <i class="fas fa-envelope me-2 mt-2"></i> info@bloghub.com
+                </address>
+            </div>
+        </div>
+
+        <hr class="my-4 bg-secondary">
+
+        <!-- Copyright -->
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0">&copy; {% now "Y" %} BlogHub, Inc. All rights reserved.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="mb-0">
+                    <a href="#" class="text-decoration-none text-light me-3">Privacy Policy</a>
+                    <a href="#" class="text-decoration-none text-light">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<style>
+    footer a:hover {
+        color: #0d6efd !important;
+        transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+        transform: translateY(-3px);
+        transition: transform 0.3s ease;
+    }
+    .input-group {
+        max-width: 300px;
+    }
+</style>

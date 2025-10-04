@@ -1,0 +1,62 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-user-circle me-2"></i>Update Profile</h5>
+                </div>
+
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <!-- Profile Photo -->
+                        <div class="text-center mb-4">
+                            {% if user.profile.photo.url %}
+                                <img src="{{ user.profile.photo.url }}" class="rounded-circle shadow" width="120" height="120" style="object-fit: cover;">
+                            {% else %}
+                                <img src="https://via.placeholder.com/120x120.png?text=No+Image" class="rounded-circle shadow">
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="photo" class="form-label">Profile Photo</label>
+                            <input type="file" name="photo" class="form-control" id="photo">
+                        </div>
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label" >Full Name</label>
+                            <input type="text" name="name" class="form-control" id="name" value="{{ user.username }}" required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" name="email" class="form-control" id="email" value="{{ user.email }}" required>
+                        </div>
+
+                        <!-- About -->
+                        <div class="mb-3">
+                            <label for="about" class="form-label">About You</label>
+                            <textarea name="about" class="form-control" id="about" rows="4">{{ user.profile.about }}</textarea>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save me-1"></i> Save Changes
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

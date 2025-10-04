@@ -1,0 +1,92 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+ 
+  <div class="container-fluid ">
+        <div class="row my-2">
+                <h2 >{{ blog_title }}</h2>
+                {% include 'blog/includes/errors.html' %}
+            </div>      
+        <div class="row m-3">
+            {% if page_obj %}
+            
+            {% for post in page_obj %}
+            <div class="col-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img style = "height: 200px; width: 300px;"  src="{{ post.formatted_image_urls }}" class="img-fluid" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <h5 class="card-title">{{ post.titles }}</h5>
+                                <p class="card-text">{{ post.contents|truncatechars:50 }}</p>
+                                <a class="text-decoration-none text-dark fw-bold" href="#">{{ post.category.name }}</a>
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex align-items-center justify-content-between mt-3">
+                                <div>
+                                    <span class="badge bg-light text-dark me-2">
+                                        <i class="fas fa-eye me-1">views</i>{{ post.views.count }}
+                                    </span>
+                                    <span class="badge bg-light text-dark">
+                                        <i class="fas fa-comment me-1">comments</i>{{ post.comments.count }}
+                                    </span>
+                                    <span class="badge bg-light text-dark">
+                                        <i class="fas fa-comment me-1">Likes</i>{{ post.likes.count }}
+                                    </span>
+                                </div>
+                                
+                                    </div>
+                                </div><br><a href="{% url 'detail' slug=post.slug %}" class="btn btn-sm btn-outline-primary">
+                                    Read More
+                                </a>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+             <div class="col-12 my-3">
+                {% if page_obj.has_other_pages %}
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page=1" aria-label="First">
+                                <span aria-hidden="true">&laquo; first</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+                                <span aria-hidden="true">previous</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        <li class="page-item"><span class="page-link">Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}</span></li>
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                                <span aria-hidden="true">next</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{page_obj.paginator.num_pages}}" aria-label="Last">
+                                <span aria-hidden="true">last &raquo;</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+                {% endif %}
+                
+            </div>
+            {% else %}
+               <p>no posts available</p>
+            {% endif %}
+        </div>
+
+  </div>
+  {% endblock %}    
